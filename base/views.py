@@ -16,3 +16,13 @@ class AddCarModel(ModelViewSet):
 class AddCarColor(ModelViewSet):
     queryset = models.CarColor.objects.all()
     serializer_class = serializer.CarColorSerializer
+
+
+class AddDepartment(ModelViewSet):
+    queryset = models.Department.objects.all()
+    serializer_class = serializer.DepartmentSerializer
+
+
+class AddEmployee(ModelViewSet):
+    queryset = models.Employee.objects.all()
+    serializer_class = serializer.EmployeeSerializer

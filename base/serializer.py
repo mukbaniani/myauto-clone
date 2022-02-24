@@ -18,3 +18,15 @@ class CarColorSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.CarColor
         fields = '__all__' 
+
+
+class DepartmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Department
+        fields = '__all__'
+
+
+class EmployeeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Employee
+        fields = '__all__'
