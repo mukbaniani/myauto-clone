@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from . import models
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.models import Group
 
 
 class CarManufacturerSerializer(serializers.ModelSerializer):
@@ -62,5 +63,13 @@ class EmployeeSerializer(serializers.ModelSerializer):
             is_active=validated_data.get('is_active'),
         )
         employee.set_password(password)
+        group = Group.objects.filter(name__in=validated_data.get("groups")).first()
         employee.save()
+        employee.groups.add(group)
         return employee
+
+
+class GroupSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Group
+        fields = '__all__'

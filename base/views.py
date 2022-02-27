@@ -2,6 +2,7 @@ from rest_framework.viewsets import ModelViewSet
 from . import models
 from . import serializer
 from rest_framework import response, status
+from django.contrib.auth.models import Group
 
 
 class AddCarManufacturer(ModelViewSet):
@@ -33,3 +34,14 @@ class AddEmployee(ModelViewSet):
 
     def retrieve(self, request, *args, **kwargs):
         return response.Response({"result": "update employee data"}, status=status.HTTP_200_OK)
+
+
+class AddGroup(ModelViewSet):
+    queryset = Group.objects.all()
+    serializer_class = serializer.GroupSerializer
+
+    def list(self, request, *args, **kwargs):
+        return response.Response(status=status.HTTP_200_OK)
+
+    def retrieve(self, request, *args, **kwargs):
+        return response.Response(status=status.HTTP_200_OK)

@@ -35,18 +35,21 @@ class Department(models.Model):
 
 
 class CustumUserManager(BaseUserManager):
-    def create_user(self, email, first_name, last_name, phone, id_number, department, password=None):
+    def create_user(self, email, first_name, last_name, phone, id_number, groups, department, password=None):
         if not email:
             raise ValueError(_('მეილის შეყვანა აუცილებელია'))
         if not first_name:
             raise ValueError(_('მომხმარებელი აუცილებელია'))
+        if not groups:
+            raise ValueError(_("ჯგუფის მითითება სავალდებულოა"))
         user = self.model(
             email=self.normalize_email(email),
             first_name=first_name,
             last_name=last_name,
             phone=phone,
             id_number=id_number,
-            department=department
+            department=department,
+            groups=groups
         )
         user.set_password(password)
         user.save(using=self._db)
