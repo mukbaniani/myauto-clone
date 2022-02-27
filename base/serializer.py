@@ -47,7 +47,6 @@ class EmployeeSerializer(serializers.ModelSerializer):
         else:
             raise serializers.ValidationError(_("პაროლის შეყვანა აუცილებელია"))
         return attrs
-        
 
     def create(self, validated_data):
         password = validated_data.get("password1")
