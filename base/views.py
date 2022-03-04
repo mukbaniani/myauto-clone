@@ -58,3 +58,17 @@ class AddGroup(ModelViewSet, PermissionRequiredMixin):
 
     def retrieve(self, request, *args, **kwargs):
         return response.Response(status=status.HTTP_200_OK)
+
+
+class AddCarTransmission(ModelViewSet, PermissionRequiredMixin):
+    queryset = models.CarTransmission.objects.all()
+    serializer_class = serializer.CarTransmissionSerializer
+    permission_required = ('base.add_cartransmission', 'base.change_cartransmission', 'base.view_cartransmission', 'base.delete_cartransmission')
+    permission_classes = [permissions.DjangoModelPermissions]
+
+
+class AddCarFuelType(ModelViewSet, PermissionRequiredMixin):
+    queryset = models.CarFuelType.objects.all()
+    serializer_class = serializer.CarFuelTypeSerializer
+    permission_required = ('base.add_carfueltype', 'base.change_carfueltype', 'base.view_carfueltype', 'base.delete_carfueltype')
+    permission_classes = [permissions.DjangoModelPermissions]

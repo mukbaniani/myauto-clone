@@ -90,3 +90,25 @@ class Employee(AbstractUser):
 
     class Meta:
         verbose_name = _("თანამშრომლები")
+
+
+class CarTransmission(models.Model):
+    name = models.CharField(max_length=255, verbose_name=_('გადამცემთა კოლოფი'))
+
+    def __str__(self):
+        return f"{self.__class__.__name__}({self.name})"
+
+    
+    class Meta:
+        verbose_name = _('გადამცემთა კოლოფი')
+
+
+class CarFuelType(models.Model):
+    name = models.CharField(max_length=255, verbose_name=_('საწვავის ტიპი'))
+
+    def __str__(self):
+        return f"{self.__class__.__name__}({self.name})"
+
+    
+    class Meta:
+        verbose_name = _('საწვავის ტიპი')

@@ -73,3 +73,15 @@ class GroupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Group
         fields = '__all__'
+
+
+class CarTransmissionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CarTransmission
+        fields = '__all__'
+
+
+class CarFuelTypeSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.CarFuelType
+        fields = '__all__'
